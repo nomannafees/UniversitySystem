@@ -1,0 +1,107 @@
+body {
+    font-family: 'Spinnaker', sans-serif;
+    background: #111111D4;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Spinnaker', sans-serif;
+}
+
+h4 {
+    color: white;
+}
+
+.btn-warning {
+    background: #fd961a !important;
+    border-radius: 0px;
+
+    margin-top: 1px;
+    color: white;
+}
+
+
+.nav-link,p{
+    color: white !important;
+}
+
+.nav-link:hover {
+    color: #fd961a !important;
+}
+
+.hero {
+    text-align: center;
+    padding: 145px 23px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../assets/img/bg.jpeg');
+    /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+h1 .yellow {
+    color: #fd961a;
+    position: relative;
+}
+
+.merit-finder-container {
+    margin-top: -70px;
+}
+
+
+.card {
+    background: none !important;
+}
+
+footer .nav-link {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.form-control {
+
+    color: white;
+    background-color: #212529;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0px;
+
+}
+
+.form-control:focus {
+    color: white;
+    background-color: #212529;
+    border-color: #ffffff;
+    outline: 0;
+    box-shadow: none;
+}
+
+.uni_selector_icon {
+    height: 21px;
+}
+
+.uni_icon {
+    background: white;
+    padding: 6px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.table-bordered>:not(caption)>* {
+    border-width: 15px 0px;
+}
+
+.table-bordered>:not(caption)>*>* {
+    border-width: 0px 5px;
+}
+
+.bg-light {
+    background: #C4C4C4 !important;
+}
+
+.border-dark {
+    border-color: #000000 !important;
+}
+
+.bg-warning {
+    background: #fd961a !important;
+}

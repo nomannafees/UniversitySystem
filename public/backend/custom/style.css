@@ -1,0 +1,24 @@
+.dark-popup {
+    background-color: #1f2937;
+    color: #f9fafb;
+    border: 1px solid #374151;
+}
+.dark-title {
+    color: #f9fafb;
+}
+.dark-confirm-button {
+    background-color: #ef4444;
+    color: white;
+}
+.dark-cancel-button {
+    background-color: #3b82f6;
+    color: white;
+}
+.dark-cancel-button:hover, .dark-confirm-button:hover {
+    opacity: 0.8;
+}
+.swal-toast-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
