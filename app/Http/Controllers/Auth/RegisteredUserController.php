@@ -40,6 +40,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($randomPassword),
+            'role' => 'finder',
         ]);
 
         $user->notify(new WelcomeEmail($randomPassword));

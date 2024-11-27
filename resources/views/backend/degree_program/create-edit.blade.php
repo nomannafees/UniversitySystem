@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title',isset($university) ? 'Edit Program':'Add Program')
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Add Degree/program') }}
@@ -28,17 +29,14 @@
                                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                                     <div class="sm:col-span-2">
                                         <label for="name"
-                                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">University
-                                            Name</label>
+                                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Program Name</label>
                                         <input type="text" name="degree_name" id="name"
-                                               value="{{isset($degreeProgram->degree_name) ? $degreeProgram->degree_name:'' }}"
+                                               value="{{ old('degree_name', isset($degreeProgram->degree_name) ? $degreeProgram->degree_name : '') }}"
                                                class="required bg-red-50 border border-red-500 text-red-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                               placeholder="Type product name">
+                                               placeholder="Type program name">
                                         @error('degree_name')
-                                        <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
-                                               class="font-medium error-msg">{{ $message }}</span></p>
+                                        <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium error-msg">{{ $message }}</span></p>
                                         @enderror
-
                                     </div>
                                 </div>
 
@@ -54,8 +52,8 @@
                                             step="any"
                                             name="last_year_merit"
                                             id="merit"
-                                            value="{{ isset($degreeProgram->last_year_merit) ? $degreeProgram->last_year_merit : '' }}"
-                                            class="required bg-red-50 border  text-red-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                            value="{{ old('last_year_merit', isset($degreeProgram->last_year_merit) ? $degreeProgram->last_year_merit : '') }}"
+                                            class="required bg-red-50 border text-red-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                             placeholder="Last Year Merit">
                                         @error('last_year_merit')
                                         <p class="mt-2 text-sm text-red-600 dark:text-red-500">
@@ -74,12 +72,12 @@
                                             type="text"
                                             name="fees"
                                             id="fee"
-                                            value="{{ isset($degreeProgram->fees) ? $degreeProgram->fees : '' }}"
+                                            value="{{ old('fees', isset($degreeProgram->fees) ? $degreeProgram->fees : '') }}"
                                             class="required bg-red-50 border border-red-500 text-red-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                             placeholder="Fee">
                                         @error('fees')
                                         <p class="mt-2 text-sm text-red-600 dark:text-red-500">
-                                            <span class="error-msg font-medium">{{ $message }}</span>
+                                            <span class="error-msg">{{ $message }}</span>
                                         </p>
                                         @enderror
                                     </div>
@@ -88,26 +86,26 @@
                                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6 mt-5">
                                     <div class="sm:col-span-2">
                                         <label for="countries"
-                                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
-                                            University</label>
+                                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select University</label>
                                         <select id="university" name="university_id"
                                                 class="required bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="" hidden>Choose a University</option>
                                             @foreach($universities as $university)
-                                                <option {{isset($degreeProgram) && $degreeProgram->university_id==$university->id ? 'selected':''}} value="{{$university->id}}">{{$university->name}}</option>
+                                                <option value="{{ $university->id }}"
+                                                    {{ old('university_id', isset($degreeProgram) ? $degreeProgram->university_id : '') == $university->id ? 'selected' : '' }}>
+                                                    {{ $university->name }}
+                                                </option>
                                             @endforeach
                                         </select>
-
                                     </div>
 
                                     <button type="submit"
                                             class="px-5 py-2.5 mt-4 sm:mt-3 text-sm font-medium text-center text-white bg-blue-700 hover:bg-blue-800 rounded-lg w-32">
-                                        {{isset($degreeProgram) ? 'Update':'Save'}}
+                                        {{ isset($degreeProgram) ? 'Update' : 'Save' }}
                                     </button>
-
-
                                 </div>
                             </form>
+
                         </div>
                     </section>
 

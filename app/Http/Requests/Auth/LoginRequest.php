@@ -48,7 +48,13 @@ class LoginRequest extends FormRequest
                 'email' => trans('auth.failed'),
             ]);
         }
-
+        $user = Auth::user();
+        if ($user->role !== 'finder') {
+            Auth::logout();
+            throw ValidationException::withMessages([
+                'email' => 'You are not authorized to log in with this account.',
+            ]);
+        }
         RateLimiter::clear($this->throttleKey());
     }
 

@@ -3,7 +3,7 @@
 @section('content')
     <div class="login-hero d-flex justify-content-center align-items-center">
         <div class="row justify-content-center">
-            <div class="col-md-9 col-offset-3">
+            <div class="col-md-6">
                 <div class="container login-container ">
                     <div class="bg-dark py-4 rounded">
                         <h1 class="text-center">
@@ -11,7 +11,7 @@
                         </h1>
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
-                            <div class="row mx-5 py-4 text-white">
+                            <div class="row mx-4 py-4 text-white">
                                 <div class="col-md-12 mt-3">
                                     <label for="your-marks" class="form-label">Name</label>
                                     <input type="text" id="your-marks" class="form-control" name="name" placeholder="Enter your name" required autocomplete="name">
@@ -36,6 +36,13 @@
 
                                 <div class="col-md-12 mt-4">
                                     <button type="submit" class="btn btn-warning w-100">Register</button>
+                                </div>
+
+                                <div class="col-md-12 mt-4">
+                                    <p class="text-white">
+                                        Already have an account?
+                                        <a href="{{ route('login') }}" class="text-warning">Login here</a>
+                                    </p>
                                 </div>
                             </div>
                         </form>

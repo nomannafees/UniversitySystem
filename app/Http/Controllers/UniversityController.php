@@ -27,11 +27,15 @@ class UniversityController extends Controller
     /**
      * Store a newly created resource in storage.
      * @param Request $request
+     * @return
      */
     public function store(Request $request)
     {
-        $request->validate(['name' => 'required|string|max:25']);
-        University::create(['name'=>$request->name]);
+        $request->validate([
+            'name' => 'required|string|max:150',
+            'location' => 'required|string|max:150'
+        ]);
+        University::create($request->all());
         return redirect()->route('universities.index')->with('success', 'University added successfully.');
     }
 
@@ -62,7 +66,10 @@ class UniversityController extends Controller
      */
     public function update(Request $request, University $university)
     {
-        $request->validate(['name' => 'required|string|max:255']);
+        $request->validate([
+            'name' => 'required|string|max:150',
+            'location' => 'required|string|max:150'
+        ]);
         $university->update($request->all());
         return redirect()->route('universities.index')->with('success', 'University updated successfully.');
 

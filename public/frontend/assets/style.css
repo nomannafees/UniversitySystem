@@ -2,6 +2,15 @@ body {
     font-family: 'Spinnaker', sans-serif;
     background: #111111D4;
 }
+
+.bg-light-dark {
+    background: #111111;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    background-color: #e9ecef00 !important;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Spinnaker', sans-serif;
 }
@@ -14,12 +23,21 @@ h4 {
     border-radius: 0px;
     margin-top: 1px;
     color: white;
-    background: #d9731b ;
-    border-color: #d9731b ;
+    background: #eb8c1a;
+    border-color: #d9731b;
 }
 
+.btn:hover {
+    color: #ffff;
+    background-color: #fd961adb !important;
+    border-color: #fd961adb !important;
+}
 
-.nav-link,p{
+.text-warning {
+    color: #fd961adb !important;
+}
+
+.nav-link, p {
     color: white !important;
 }
 
@@ -36,6 +54,7 @@ h4 {
     background-position: center;
     color: #fff;
 }
+
 .login-hero {
 
     height: 100vh !important;
@@ -93,11 +112,12 @@ footer .nav-link {
     height: 30px;
     border-radius: 50%;
 }
-.table-bordered>:not(caption)>* {
+
+.table-bordered > :not(caption) > * {
     border-width: 15px 0px;
 }
 
-.table-bordered>:not(caption)>*>* {
+.table-bordered > :not(caption) > * > * {
     border-width: 0px 5px;
 }
 
@@ -110,16 +130,18 @@ footer .nav-link {
 }
 
 
-.card{
+.card {
     height: 100%;
 }
-.card-body img{
+
+.card-body img {
     max-height: 400px;
     width: 100%;
     object-fit: cover;
     height: 100% !important;
 }
-.card-footer{
+
+.card-footer {
     margin-top: -15px;
     border-radius: 15px !important;
 }
@@ -127,16 +149,20 @@ footer .nav-link {
 .bg-dark {
     background: #1D1D1D !important;
 }
-.merit-finder-container .bg-dark{
+
+.merit-finder-container .bg-dark {
     border-radius: 18px !important;
 }
-.card-footer{
+
+.card-footer {
     background-color: #1d1d1da6 !important;
 }
-.m-top-7{
+
+.m-top-7 {
     margin-top: 7rem !important;
 }
-.login-container .rounded{
+
+.login-container .rounded {
     border-radius: 15px !important;
 }
 
@@ -144,31 +170,38 @@ footer .nav-link {
     .m-top-7 {
         margin-top: 3rem !important;
     }
-    .mt-sm-5{
+
+    .mt-sm-5 {
         margin-top: 3rem !important;
     }
-    .mx-2{
-     margin-left: 0!important;
-        margin-right: 0!important;
+
+    .mx-2 {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
-    .mx-5{
-        margin-left: 0!important;
-        margin-right: 0!important;
+
+    .mx-5 {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
-    .t-m{
+
+    .t-m {
         padding-top: 14px !important;
     }
-    .t-m-3{
+
+    .t-m-3 {
         padding-top: 23px;
     }
-    .py-4{
-        padding-bottom: 1rem!important;
+
+    .py-4 {
+        padding-bottom: 1rem !important;
     }
 }
+
 @media (min-width: 200px) and (max-width: 579px) {
-.tx-center{
-    text-align: left;
-}
+    .tx-center {
+        text-align: left;
+    }
 
 }
 

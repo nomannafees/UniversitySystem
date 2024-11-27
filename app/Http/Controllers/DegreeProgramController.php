@@ -34,10 +34,11 @@ class DegreeProgramController extends Controller
         $request->validate([
             'university_id' => 'required|exists:universities,id',
             'degree_name' => 'required|string|max:255',
-            'last_year_merit' => 'required|numeric|min:0|max:4', // Ensure it's a number and positive
-            'fees' => 'required|numeric|min:0|max:8', // Ensure it's a number and positive
-        ],[
-           'last_year_merit' =>'Last year merit must not be greater than 4.'
+            'last_year_merit' => ['required', 'numeric', 'min:0', 'max:9999', 'regex:/^\d{1,4}(\.\d+)?$/'], // Allows up to 4 digits before the decimal
+            'fees' => 'required|numeric|min:0|max:10000000',
+        ], [
+            'last_year_merit.regex' => 'Last year merit must be a number with no more than 4 digits before the decimal point.',
+            'fees.max' => 'Fee must not be greater than 15.',
         ]);
         DegreeProgram::create($request->all());
         return redirect()->route('degree-program.index')->with('success', 'Program added successfully.');
@@ -68,8 +69,11 @@ class DegreeProgramController extends Controller
         $request->validate([
             'university_id' => 'required|exists:universities,id',
             'degree_name' => 'required|string|max:255',
-            'last_year_merit' => 'required|numeric|min:0', // Ensure it's a number and positive
-            'fees' => 'required|numeric|min:0', // Ensure it's a number and positive
+            'last_year_merit' => ['required', 'numeric', 'min:0', 'max:9999', 'regex:/^\d{1,4}(\.\d+)?$/'], // Allows up to 4 digits before the decimal
+            'fees' => 'required|numeric|min:0|max:10000000',
+        ], [
+            'last_year_merit.regex' => 'Last year merit must be a number with no more than 4 digits before the decimal point.',
+            'fees.max' => 'Fee must not be greater than 15.',
         ]);
         $degreeProgram->update($request->all());
         return redirect()->route('degree-program.index')->with('success', 'Program updated successfully.');

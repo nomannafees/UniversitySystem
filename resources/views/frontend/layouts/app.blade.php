@@ -13,12 +13,12 @@
 
 </head>
 <body>
-@if(request()->path() !== 'login')
+@if(request()->path() !== 'login' && request()->path() !== 'register')
 @include('frontend.layouts.navigation')
 @endif
 @yield('content')
 
-@if(request()->path() !== 'login')
+@if(request()->path() !== 'login' && request()->path() !== 'register')
 @include('frontend.layouts.footer')
 @endif
 

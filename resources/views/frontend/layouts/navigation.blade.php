@@ -23,6 +23,32 @@
                     <a class="btn btn-warning btn-block me-4" href="#">Blogs</a>
                 </li>
 
+                <!-- Auth Links -->
+            @guest
+                <!-- Show Login Link if User is Not Logged In -->
+                    <li class="nav-item">
+                        <a class="nav-link me-4" href="{{ route('login') }}">Login</a>
+                    </li>
+            @else
+                <!-- Dropdown Menu for Logged-In User -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle me-4" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ Auth::user()->name }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end bg-light-dark" aria-labelledby="navbarDropdown">
+                            <li class="dropdown-item">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item text-white bg-dark border-0" style="background-color: transparent;">
+                                        Logout
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endguest
+
             </ul>
         </div>
     </div>

@@ -22,28 +22,27 @@ function confirmDelete(id) {
 }
 
 $(document).ready(function () {
+
     $('input.required, select.required').on('input', function () {
         const $this = $(this);
-
-        // Remove any existing error or success styles
+        const name = $this.attr('id');
         $this.removeClass('bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500');
         $this.removeClass('bg-green-50 border-green-500 text-green-900 placeholder-green-700 focus:ring-green-500 focus:border-green-500');
-
-        // Remove the error message if present for the current field
         $this.next('.feedback-message').remove();
-
-        // Check if the field is empty
+        $this.closest('div').find('.error-msg').remove();
         if (!$this.val() || $this.val().trim() === '') {
-            // Add red border and error message for empty field
             $this.addClass('bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500');
-            $this.after('<p class="feedback-message mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium"></span> This field is required!</p>');
+            if ($this.closest('div').find('.error-msg').length === 0) {
+                $this.after('<p class="feedback-message error-msg mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium"></span>This ' + name + ' is required!</p>');
+            }
         } else {
-            // Add green border and success message for valid field
             $this.addClass('bg-green-50 border-green-500 text-green-900 placeholder-green-700 focus:ring-green-500 focus:border-green-500');
-            $(this).find('.error-msg').remove();
-            $this.after('<p class="feedback-message mt-2 text-sm text-green-600 dark:text-green-500"><span class="font-medium">Alright!</span> Looks good!</p>');
+            if ($this.next('.feedback-message').length === 0) {
+                $this.after('<p class="feedback-message mt-2 text-sm text-green-600 dark:text-green-500"><span class="font-medium">Alright!</span> Looks good!</p>');
+            }
         }
     });
+
 
     $('#form').on('submit', function (e) {
         let isValid = true;

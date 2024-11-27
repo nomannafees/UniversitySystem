@@ -1,66 +1,79 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# University Degree Program Management System
 
-## About Laravel
+## Description
+This project is a **CRUD (Create, Read, Update, Delete)** application built with **Laravel**. It is designed to manage **Universities** and their **Degree Programs**. The system allows users to:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Add new universities
+- Add and manage degree programs for each university
+- Edit, update, or delete universities and degree programs
+- View the list of universities and their associated degree programs
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+The system allows administrators to manage data related to university degree programs, including information like **degree name**, **last year merit**, and **fees**.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Features
+- **CRUD Operations** for Universities and Degree Programs
+- **Form Validation** for user input (e.g., name, location, merit, fees)
+- **User-friendly Interface** with input validation and success/error messages
+- **Database Management** for storing and retrieving universities and degree programs
+- **Responsive Design** that works on desktop and mobile
+- **Searchable & Paginated Tables** for easy viewing of universities and degree programs
 
-## Learning Laravel
+## Installation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+To set up and run the application on your local environment, follow these steps:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 1. Clone the repository
+Use the following command to clone the repository to your local machine:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+git clone <https://github.com/nomannafees/UniversitySystem>
 
-## Laravel Sponsors
+### 2. Install Composer dependencies
+Navigate into the project directory and install the required PHP dependencies using Composer
+cd UniversitySystem
+composer install
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 3.  Set up the environment file
+Copy the .env.example file to .env:
+cp .env.example .env
 
-### Premium Partners
+### 4.  Set up the database
+If you don't already have a database set up, create one and configure it in your .env file:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=your_database_user
+DB_PASSWORD=your_database_password
 
-## Contributing
+### 5. Generate the application key
+Run the following command to generate the application key:
+php artisan key:generate
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 6. Run database migrations
+Set up the database by running migrations to create the necessary tables:
+php artisan migrate
 
-## Code of Conduct
+Also run the seeders
+php artisan db:seed
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 7. Install Frontend Dependencies
+You might also need to install the frontend dependencies and build them. Use the following commands:
+Install Node.js dependencies:
+npm install
 
-## Security Vulnerabilities
+### 8. Compile frontend assets
+npm run dev
+Alternatively, to build the production version:
+npm run prod
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 9. Usage
 
-## License
+Once the application is running, you can:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Add a new university: Navigate to the Universities section and create a new university by filling out the required fields (e.g., University Name, Location).
+Add a degree program: Select a university from the dropdown list and add a new degree program with details like degree name, last year merit, and fees.
+Edit or delete universities: Click the "Edit" button to modify any university's details, or use the "Delete" button to remove a university.
+View university details: The system provides a list of universities with their associated degree programs.
