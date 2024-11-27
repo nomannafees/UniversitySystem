@@ -14,9 +14,10 @@ class WelcomeEmail extends Notification
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    protected $password;
+    public function __construct($password)
     {
-        //
+        $this->password = $password;
     }
 
     /**
@@ -40,7 +41,7 @@ class WelcomeEmail extends Notification
             ->line('Welcome to our platform. Your account has been successfully created.')
             ->line('Here are your login details:')
             ->line('**Email:** ' . $notifiable->email)
-            ->line('**Password:** ' . $notifiable->password)
+            ->line('**Password:** ' . $this->password)
             ->line('Please change your password after logging in.')
             ->salutation('Best regards, The Team');
     }

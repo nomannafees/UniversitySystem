@@ -11,11 +11,11 @@ h4 {
 }
 
 .btn-warning {
-    background: #fd961a !important;
     border-radius: 0px;
-
     margin-top: 1px;
     color: white;
+    background: #d9731b ;
+    border-color: #d9731b ;
 }
 
 
@@ -32,7 +32,14 @@ h4 {
     padding: 145px 23px;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('../assets/img/bg.jpeg');
-    /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+.login-hero {
+
+    height: 100vh !important;
+    background: linear-gradient(rgb(0 0 0 / 69%), rgb(0 0 0 / 59%)), url(../assets/img/bg.jpeg);
     background-size: cover;
     background-position: center;
     color: #fff;
@@ -60,7 +67,7 @@ footer .nav-link {
 .form-control {
 
     color: white;
-    background-color: #212529;
+    background-color: #1D1D1D;
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: 0px;
@@ -102,6 +109,66 @@ footer .nav-link {
     border-color: #000000 !important;
 }
 
-.bg-warning {
-    background: #fd961a !important;
+
+.card{
+    height: 100%;
 }
+.card-body img{
+    max-height: 400px;
+    width: 100%;
+    object-fit: cover;
+    height: 100% !important;
+}
+.card-footer{
+    margin-top: -15px;
+    border-radius: 15px !important;
+}
+
+.bg-dark {
+    background: #1D1D1D !important;
+}
+.merit-finder-container .bg-dark{
+    border-radius: 18px !important;
+}
+.card-footer{
+    background-color: #1d1d1da6 !important;
+}
+.m-top-7{
+    margin-top: 7rem !important;
+}
+.login-container .rounded{
+    border-radius: 15px !important;
+}
+
+@media (min-width: 300px) and (max-width: 769px) {
+    .m-top-7 {
+        margin-top: 3rem !important;
+    }
+    .mt-sm-5{
+        margin-top: 3rem !important;
+    }
+    .mx-2{
+     margin-left: 0!important;
+        margin-right: 0!important;
+    }
+    .mx-5{
+        margin-left: 0!important;
+        margin-right: 0!important;
+    }
+    .t-m{
+        padding-top: 14px !important;
+    }
+    .t-m-3{
+        padding-top: 23px;
+    }
+    .py-4{
+        padding-bottom: 1rem!important;
+    }
+}
+@media (min-width: 200px) and (max-width: 579px) {
+.tx-center{
+    text-align: left;
+}
+
+}
+

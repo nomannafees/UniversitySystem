@@ -26,7 +26,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body p-0">
-                        <img class="img-fluid" src="{{asset('frontend/assets/img/bg-detail.png')}}" alt="">
+                        <img class="img-fluid" src="{{asset('frontend/assets/img/uni_details.PNG')}}" alt="">
                     </div>
                 </div>
             </div>

@@ -34,22 +34,19 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-
-        $randomPassword = Str::random(10);
+        $randomPassword = Str::random(8);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($randomPassword), // Use the random password
+            'password' => Hash::make($randomPassword),
         ]);
-        // Send the notification
+
         $user->notify(new WelcomeEmail($randomPassword));
 
         event(new Registered($user));
+        // Auth::login($user);
+        return back()->with('success', 'We have sent password on your email');
 
-        Auth::login($user);
-
-        return redirect(route('dashboard', absolute: false));
     }
 }

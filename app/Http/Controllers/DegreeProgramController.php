@@ -34,8 +34,10 @@ class DegreeProgramController extends Controller
         $request->validate([
             'university_id' => 'required|exists:universities,id',
             'degree_name' => 'required|string|max:255',
-            'last_year_merit' => 'required|numeric',
-            'fees' => 'required|numeric',
+            'last_year_merit' => 'required|numeric|min:0|max:4', // Ensure it's a number and positive
+            'fees' => 'required|numeric|min:0|max:8', // Ensure it's a number and positive
+        ],[
+           'last_year_merit' =>'Last year merit must not be greater than 4.'
         ]);
         DegreeProgram::create($request->all());
         return redirect()->route('degree-program.index')->with('success', 'Program added successfully.');
@@ -66,8 +68,8 @@ class DegreeProgramController extends Controller
         $request->validate([
             'university_id' => 'required|exists:universities,id',
             'degree_name' => 'required|string|max:255',
-            'last_year_merit' => 'required|numeric',
-            'fees' => 'required|numeric',
+            'last_year_merit' => 'required|numeric|min:0', // Ensure it's a number and positive
+            'fees' => 'required|numeric|min:0', // Ensure it's a number and positive
         ]);
         $degreeProgram->update($request->all());
         return redirect()->route('degree-program.index')->with('success', 'Program updated successfully.');

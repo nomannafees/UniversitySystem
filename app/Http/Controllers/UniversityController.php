@@ -30,7 +30,7 @@ class UniversityController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['name' => 'required|string|max:255']);
+        $request->validate(['name' => 'required|string|max:25']);
         University::create(['name'=>$request->name]);
         return redirect()->route('universities.index')->with('success', 'University added successfully.');
     }

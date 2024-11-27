@@ -17,8 +17,8 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <section class="bg-white dark:bg-gray-900">
                         <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-                            <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Add a new university</h2>
-                            <form action="{{ isset($university) ? route('universities.update',$university->id) : route('universities.store') }}" method="post">
+                            <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">{{isset($university) ? 'Edit university':'Add a new university'}}</h2>
+                            <form id="form" action="{{ isset($university) ? route('universities.update',$university->id) : route('universities.store') }}" method="post">
                                 @csrf
                                 @isset($university)
                                     {{ method_field('PUT') }}
@@ -26,14 +26,14 @@
                                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                                     <div class="sm:col-span-2">
                                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">University Name</label>
-                                        <input type="text" name="name" id="name-error" value="{{isset($university->name) ? $university->name:'' }}" class="bg-red-50 border border-red-500 text-red-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name">
+                                        <input  type="text" name="name" id="name" value="{{isset($university->name) ? $university->name:'' }}" class="required bg-red-50 border border-red-500 text-red-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name">
                                         @error('name')
-                                        <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+                                        <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium error-msg">{{ $message }}</span></p>
                                         @enderror
 
                                     </div>
 
-                                    <button type="submit" class="px-5 py-2.5 mt-4 sm:mt-3 text-sm font-medium text-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg w-32">
+                                    <button type="submit" class="px-5 py-2.5 mt-4 sm:mt-3 text-sm font-medium text-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4  rounded-lg w-32">
                                         {{isset($university) ? 'Update':'Save'}}
                                     </button>
 
