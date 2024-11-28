@@ -79,10 +79,10 @@ Edit or delete universities: Click the "Edit" button to modify any university's 
 View university details: The system provides a list of universities with their associated degree programs.
 
 ### 10. Usage
-Note: Must Run for Dummy Data if you have followed the step 6 and already run migration and seed then can skip this last step
+Note: Must Run for Dummy Data if you have followed the step 6 and already run migration and seed then can skip this last step-10
 # Php artisan migrate --seed 
 
-### 10. Admin Login
+## 11. Admin Login
 localhost:8000/admin/login
 Email:admin@admin.com
 Password: admin@123
