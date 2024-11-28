@@ -35,7 +35,7 @@ cd UniversitySystem
 composer install
 
 ### 3.  Set up the environment file
-Copy the .env.example file to .env:
+Copy the .env.example file to .env
 cp .env.example .env
 
 ### 4.  Set up the database
@@ -73,7 +73,16 @@ npm run prod
 
 Once the application is running, you can:
 
-Add a new university: Navigate to the Universities section and create a new university by filling out the required fields (e.g., University Name, Location).
+Add a new university: Navigate to the Universities section and create a new university by filling out the required fields (e.g., University Name etc).
 Add a degree program: Select a university from the dropdown list and add a new degree program with details like degree name, last year merit, and fees.
 Edit or delete universities: Click the "Edit" button to modify any university's details, or use the "Delete" button to remove a university.
 View university details: The system provides a list of universities with their associated degree programs.
+
+### 10. Usage
+Note: Must Run for Dummy Data if you have followed the step 6 and already run migration and seed then can skip this last step
+# Php artisan migrate --seed 
+
+### 10. Admin Login
+localhost:8000/admin/login
+Email:admin@admin.com
+Password: admin@123
