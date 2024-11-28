@@ -1,5 +1,5 @@
 @extends('frontend.layouts.app')
-@section('title','Detail')
+@section('title',isset($university->name) ? $university->name : '')
 @section('content')
     <style>
         body {
@@ -27,7 +27,9 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body p-0">
-                        <img class="img-fluid" src="{{ isset($university->image) ? url('storage/university_image/'.$university->image) : asset('default.jpg')  }}" alt="University Image">
+                        <img class="img-fluid"
+                             src="{{ \Storage::exists('university_image/'.$university->image) ? url('storage/university_image/'.$university->image) : asset('frontend/assets/img/'.$university->image) }}"
+                             alt="University Image">
 
                     </div>
                 </div>

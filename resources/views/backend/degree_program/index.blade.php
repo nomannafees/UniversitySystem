@@ -82,7 +82,7 @@
                             </tr>
                         @empty
                             <tr class="bg-white dark:bg-gray-800">
-                                <td class="py-5" colspan="5">
+                                <td class="py-5" colspan="6">
                                     <div class="flex items-center p-4 text-sm text-gray-800 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600" role="alert">
                                         <div>
                                             <span class="font-medium">No record found!</span>

@@ -46,12 +46,15 @@
 
     <div class="container-fluid ">
         <div class="row mx-2 ">
-            @foreach($universities as $university)
+            @foreach($universities as $key =>$university)
             <div class="col-md-4  m-top-7">
                 <div class="card">
                     <div class="card-body p-0">
                         <a href="{{route('show',$university->slug)}}">
-                            <img src="{{ isset($university->image) ? url('storage/university_image/'.$university->image) : asset('default.jpg')  }}" alt="University Image" class="w-16 h-8 object-cover">
+                            <img
+                                src="{{ \Storage::exists('university_image/'.$university->image) ? url('storage/university_image/'.$university->image) : asset('frontend/assets/img/'.$university->image) }}"
+                                alt="University Image"
+                                class="w-16 h-8 object-cover">
 
                         </a>
                     </div>
