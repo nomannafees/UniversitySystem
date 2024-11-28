@@ -44,77 +44,82 @@
 
     </div>
 
-    <div class="container-fluid mt-5">
-        <div class="row mx-2 m-top-7">
-            <div class="col-md-4 ">
+    <div class="container-fluid ">
+        <div class="row mx-2 ">
+            @foreach($universities as $university)
+            <div class="col-md-4  m-top-7">
                 <div class="card">
                     <div class="card-body p-0">
-                        <img class="img-fluid " src="{{asset('frontend/assets/img/uni_1.jpeg')}}" alt="">
+                        <a href="{{route('show',$university->slug)}}">
+                            <img src="{{ isset($university->image) ? url('storage/university_image/'.$university->image) : asset('default.jpg')  }}" alt="University Image" class="w-16 h-8 object-cover">
+
+                        </a>
                     </div>
                     <div class="card-footer p-4 bg-dark text-white text-center">
-                        <h4 class="mt-2">BZU</h4>
+                        <h4 class="mt-2">{{isset($university->name) ? $university->name :'' }}</h4>
                         <span class="fs-5">20 results found</span>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mt-sm-5 mt-md-0">
-                <div class="card">
-                    <div class="card-body p-0">
-                        <img class="img-fluid" src="{{asset('frontend/assets/img/uni_2.jpg')}}" alt="">
-                    </div>
-                    <div class="card-footer p-4 bg-dark text-white text-center">
-                        <h4 class="mt-2">MNSUAM</h4>
-                        <span class="fs-5">30 results found</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mt-sm-5 mt-md-0">
-                <div class="card">
-                    <div class="card-body p-0">
-                        <img class="img-fluid" src="{{asset('frontend/assets/img/uni_3.png')}}" alt="">
-                    </div>
-                    <div class="card-footer p-4 bg-dark text-white text-center">
-                        <h4 class="mt-2">ISP</h4>
-                        <span class="fs-5">2 results found</span>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+{{--            <div class="col-md-4 mt-sm-5 mt-md-0">--}}
+{{--                <div class="card">--}}
+{{--                    <div class="card-body p-0">--}}
+{{--                        <img class="img-fluid" src="{{asset('frontend/assets/img/uni_2.jpg')}}" alt="">--}}
+{{--                    </div>--}}
+{{--                    <div class="card-footer p-4 bg-dark text-white text-center">--}}
+{{--                        <h4 class="mt-2">MNSUAM</h4>--}}
+{{--                        <span class="fs-5">30 results found</span>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-md-4 mt-sm-5 mt-md-0">--}}
+{{--                <div class="card">--}}
+{{--                    <div class="card-body p-0">--}}
+{{--                        <img class="img-fluid" src="{{asset('frontend/assets/img/uni_3.png')}}" alt="">--}}
+{{--                    </div>--}}
+{{--                    <div class="card-footer p-4 bg-dark text-white text-center">--}}
+{{--                        <h4 class="mt-2">ISP</h4>--}}
+{{--                        <span class="fs-5">2 results found</span>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
 
-        <div class="row mx-2 mt-5 mb-5 m-top-7">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body p-0">
-                        <img class="img-fluid" src="{{asset('frontend/assets/img/uni_1.jpeg')}}" alt="">
-                    </div>
-                    <div class="card-footer p-4 bg-dark text-white text-center">
-                        <h4 class="mt-2">MNSUET</h4>
-                        <span class="fs-5">8 results found</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mt-sm-5 mt-md-0">
-                <div class="card">
-                    <div class="card-body p-0">
-                        <img class="img-fluid" src="{{asset('frontend/assets/img/uni_2.jpg')}}" alt="">
-                    </div>
-                    <div class="card-footer p-4 bg-dark text-white text-center">
-                        <h4 class="mt-2">AIR UNIVERSITY</h4>
-                        <span class="fs-5">3 results found</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mt-sm-5 mt-md-0"">
-                <div class="card">
-                    <div class="card-body p-0">
-                        <img class="img-fluid" src="{{asset('frontend/assets/img/uni_3.png')}}" alt="">
-                    </div>
-                    <div class="card-footer p-4 bg-dark text-white text-center">
-                        <h4 class="mt-2">NFCUET</h4>
-                        <span class="fs-5">10 results found</span>
-                    </div>
-                </div>
-            </div>
+{{--        <div class="row mx-2 mt-5 mb-5 m-top-7">--}}
+{{--            <div class="col-md-4">--}}
+{{--                <div class="card">--}}
+{{--                    <div class="card-body p-0">--}}
+{{--                        <img class="img-fluid" src="{{asset('frontend/assets/img/uni_1.jpeg')}}" alt="">--}}
+{{--                    </div>--}}
+{{--                    <div class="card-footer p-4 bg-dark text-white text-center">--}}
+{{--                        <h4 class="mt-2">MNSUET</h4>--}}
+{{--                        <span class="fs-5">8 results found</span>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-md-4 mt-sm-5 mt-md-0">--}}
+{{--                <div class="card">--}}
+{{--                    <div class="card-body p-0">--}}
+{{--                        <img class="img-fluid" src="{{asset('frontend/assets/img/uni_2.jpg')}}" alt="">--}}
+{{--                    </div>--}}
+{{--                    <div class="card-footer p-4 bg-dark text-white text-center">--}}
+{{--                        <h4 class="mt-2">AIR UNIVERSITY</h4>--}}
+{{--                        <span class="fs-5">3 results found</span>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-md-4 mt-sm-5 mt-md-0"">--}}
+{{--                <div class="card">--}}
+{{--                    <div class="card-body p-0">--}}
+{{--                        <img class="img-fluid" src="{{asset('frontend/assets/img/uni_3.png')}}" alt="">--}}
+{{--                    </div>--}}
+{{--                    <div class="card-footer p-4 bg-dark text-white text-center">--}}
+{{--                        <h4 class="mt-2">NFCUET</h4>--}}
+{{--                        <span class="fs-5">10 results found</span>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
     </div>
 @endsection

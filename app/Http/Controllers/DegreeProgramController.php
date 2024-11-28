@@ -13,7 +13,7 @@ class DegreeProgramController extends Controller
      */
     public function index()
     {
-        $degrees = DegreeProgram::all();
+        $degrees = DegreeProgram::paginate(5);
         return view('backend.degree_program.index', compact('degrees'));
     }
 
@@ -34,8 +34,9 @@ class DegreeProgramController extends Controller
         $request->validate([
             'university_id' => 'required|exists:universities,id',
             'degree_name' => 'required|string|max:255',
-            'last_year_merit' => ['required', 'numeric', 'min:0', 'max:9999', 'regex:/^\d{1,4}(\.\d+)?$/'], // Allows up to 4 digits before the decimal
+            'last_year_merit' => ['required', 'numeric', 'min:0', 'max:99.99', 'regex:/^\d{1,3}(\.\d+)?$/'],
             'fees' => 'required|numeric|min:0|max:10000000',
+            'chance' => 'required|numeric|min:1|max:2',
         ], [
             'last_year_merit.regex' => 'Last year merit must be a number with no more than 4 digits before the decimal point.',
             'fees.max' => 'Fee must not be greater than 15.',

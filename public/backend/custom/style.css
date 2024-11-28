@@ -22,3 +22,45 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+/* Custom scrollbar styles */
+.custom-scrollbar {
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #6b7280 rgba(229, 231, 235, 0.52); /* Thumb and track colors for light mode */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px; /* Width of vertical scrollbar */
+    height: 8px; /* Height of horizontal scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #6b7280; /* Thumb color */
+    border-radius: 4px; /* Rounded edges for thumb */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #e5e7eb; /* Track color */
+}
+
+/* Dark mode custom scrollbar styles */
+.custom-scrollbar.dark {
+    scrollbar-color: #000000 #000000; /* Thumb and track colors for dark mode */
+}
+
+.custom-scrollbar.dark::-webkit-scrollbar-thumb {
+    background-color: #374151; /* Thumb color for dark mode */
+}
+
+.custom-scrollbar.dark::-webkit-scrollbar-track {
+    background-color: #1f2937; /* Track color for dark mode */
+}
+.dark\:border-indigo-600:is(.dark *) {
+    border-color: rgb(37 99 235) !important;
+}
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #6b7280 rgb(73 76 82 / 52%);
+}
+.leading-loose {
+    line-height: 2.2 !important;
+}

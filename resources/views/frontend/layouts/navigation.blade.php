@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand ms-4" href="#">
+        <a class="navbar-brand ms-4" href="{{url('/')}}">
             <img src="{{asset('frontend/assets/img/logo1.svg')}}" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"

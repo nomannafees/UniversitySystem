@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\University;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use function League\Flysystem\move;
 
 class UniversityController extends Controller
 {
@@ -12,7 +14,7 @@ class UniversityController extends Controller
      */
     public function index()
     {
-        $universities = University::all();
+        $universities = University::paginate(5);
         return view('backend.university.index', compact('universities'));
     }
 
@@ -32,10 +34,32 @@ class UniversityController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:150',
-            'location' => 'required|string|max:150'
+            'name' => 'required|string|max:30',
+            'location' => 'required|string|max:150',
+            'admission_info' => 'required|string|max:255',
+            'registrar_office' => 'required|string|max:150',
+            'phone' => 'required|string|regex:/^\+?[0-9]{7,15}$/',
+            'email' => 'required|email|max:150',
+            'address' => 'required|string|max:255',
+            'city' => 'required|string|max:150',
         ]);
-        University::create($request->all());
+
+        $image_name = null; // Default image name
+
+        if ($request->hasFile('img')) {
+            $image = $request->file('img');
+            $image_extension = $image->getClientOriginalExtension();
+            $image_name = time() . "." . $image_extension;
+            $image->storeAs('/university_image', $image_name);
+
+
+        }
+        $request->request->add([
+            'image' => $image_name,
+            'slug' => Str::slug($request->name),
+        ]);
+        $requestData = $request->except(['img']);
+        University::create($requestData);
         return redirect()->route('universities.index')->with('success', 'University added successfully.');
     }
 

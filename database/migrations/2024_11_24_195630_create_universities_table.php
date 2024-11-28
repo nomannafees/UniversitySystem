@@ -14,7 +14,15 @@ return new class extends Migration
         Schema::create('universities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug')->nullable();
             $table->string('location');
+            $table->string('admission_info')->nullable();
+            $table->string('registrar_office')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email');
+            $table->text('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

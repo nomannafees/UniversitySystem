@@ -6,7 +6,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-5">
+    <div class="py-5 px-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="text-right ">
                 <a href="{{route('degree-program.index')}}"
@@ -84,7 +84,7 @@
                                 </div>
 
                                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6 mt-5">
-                                    <div class="sm:col-span-2">
+                                    <div class="sm:col-span-1">
                                         <label for="countries"
                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select University</label>
                                         <select id="university" name="university_id"
@@ -98,6 +98,20 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                    <div class="sm:col-span-1">
+                                        <label for="countries"
+                                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select University</label>
+                                        <select id="chance" name="chance"
+                                                class="required bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                            <option value="" hidden >Select Chance</option>
+                                            <option value="1"   {{ old('university_id', isset($degreeProgram) ? $degreeProgram->chance : '') == 1 ? 'selected' : '' }} >High Chance</option>
+                                            <option value="2" {{ old('university_id', isset($degreeProgram) ? $degreeProgram->chance : '') == 2 ? 'selected' : '' }}  >Low Chance</option>
+
+                                        </select>
+                                        @error('chance')
+                                        <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium error-msg">{{ $message }}</span></p>
+                                        @enderror
+                                    </div>
 
                                     <button type="submit"
                                             class="px-5 py-2.5 mt-4 sm:mt-3 text-sm font-medium text-center text-white bg-blue-700 hover:bg-blue-800 rounded-lg w-32">
@@ -108,8 +122,6 @@
 
                         </div>
                     </section>
-
-
                 </div>
             </div>
         </div>

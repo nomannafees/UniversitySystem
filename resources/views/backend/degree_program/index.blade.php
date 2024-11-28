@@ -6,7 +6,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-5">
+    <div class="py-5 px-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
 
@@ -19,7 +19,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg mt-5">
 
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-
+                    <div class="overflow-x-auto custom-scrollbar">
                     <table class="min-w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
@@ -34,6 +34,9 @@
                             </th>
                             <th scope="col" class="px-6 py-4 w-1/5 text-left">
                                 Fee
+                            </th>
+                            <th scope="col" class="px-6 py-4 w-1/5 text-left">
+                               Chance
                             </th>
                             <th scope="col" class="px-6 py-4 w-1/5 text-right">
                                 Action
@@ -55,20 +58,27 @@
                                 <td class="px-6 py-4 truncate">
                                     {{$degree->fees ? $degree->fees : ''}}
                                 </td>
-                                <td class="px-6 py-4 text-right">
-                                    <a href="{{ route('degree-program.edit', $degree->id) }}"
-                                       class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-3 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 me-3">
-                                        Edit
-                                    </a>
-                                    <form action="{{ route('degree-program.destroy', $degree->id) }}" method="POST" style="display:inline;" id="delete-form-{{$degree->id}}">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="button" onclick="confirmDelete({{ $degree->id }})"
-                                                class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-3 py-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
-                                            Delete
-                                        </button>
-                                    </form>
+                                <td class="px-6 py-4 truncate">
+                                    {{$degree->chance ==1 ? 'High' : 'Low'}}
                                 </td>
+                                <td class="px-6 py-4 text-right">
+                                    <!-- Add a flex container to align buttons horizontally -->
+                                    <div class="flex justify-end space-x-2">
+                                        <a href="{{ route('degree-program.edit', $degree->id) }}"
+                                           class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-3 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                            Edit
+                                        </a>
+                                        <form action="{{ route('degree-program.destroy', $degree->id) }}" method="POST" style="display:inline;" id="delete-form-{{$degree->id}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="button" onclick="confirmDelete({{ $degree->id }})"
+                                                    class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-3 py-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                                                Delete
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+
                             </tr>
                         @empty
                             <tr class="bg-white dark:bg-gray-800">
@@ -83,7 +93,11 @@
                         @endforelse
                         </tbody>
                     </table>
+                    </div>
 
+             <div class="mt-5">
+                 {{$degrees->links()}}
+             </div>
                 </div>
             </div>
         </div>

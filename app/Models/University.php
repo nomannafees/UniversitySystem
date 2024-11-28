@@ -6,10 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class University extends Model
 {
-    protected $fillable = ['name'];
+    protected $guarded=[];
 
-    public function degreePrograms()
+    public function degreeProgramsHigh()
     {
-        return $this->hasMany(DegreeProgram::class);
+        return $this->hasMany(DegreeProgram::class)->where('chance','1');
+    }
+    public function degreeProgramsLow()
+    {
+        return $this->hasMany(DegreeProgram::class)->where('chance','2');
     }
 }
