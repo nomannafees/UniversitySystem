@@ -28,7 +28,7 @@
                 <div class="card">
                     <div class="card-body p-0">
                         <img class="img-fluid"
-                             src="{{ \Storage::exists('university_image/'.$university->image) ? url('storage/university_image/'.$university->image) : asset('frontend/assets/img/'.$university->image) }}"
+                             src="{{ isset($university->image) && \Storage::exists('university_image/'.$university->image) ? url('storage/university_image/'.$university->image) : asset('frontend/assets/img/'.$university->image) }}"
                              alt="University Image">
 
                     </div>

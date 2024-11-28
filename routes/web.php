@@ -9,7 +9,7 @@ use App\Http\Controllers\UniversityController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[FrontendController::class,'index']);
-
+Route::get('uni/{slug}',[FrontendController::class,'show'])->name('show');
 
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
@@ -26,7 +26,7 @@ Route::middleware(['auth','verified','admin'])->group(function () {
     Route::resource('/universities', UniversityController::class);
     Route::resource('/degree-program', DegreeProgramController::class);
 });
-Route::get('/{slug}',[FrontendController::class,'show'])->name('show');
+
 
 
 require __DIR__.'/auth.php';

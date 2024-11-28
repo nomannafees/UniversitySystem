@@ -18,7 +18,7 @@ The system allows administrators to manage data related to university degree pro
 - **User-friendly Interface** with input validation and success/error messages
 - **Database Management** for storing and retrieving universities and degree programs
 - **Responsive Design** that works on desktop and mobile
-- **Searchable & Paginated Tables** for easy viewing of universities and degree programs
+- **Paginated Tables** for easy viewing of universities and degree programs
 
 ## Installation
 
