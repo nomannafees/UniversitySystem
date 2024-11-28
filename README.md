@@ -71,7 +71,7 @@ npm run prod
 
 ### 9. Usage
 
-Once the application is running, you can:
+Once the application is running, you can
 
 Add a new university: Navigate to the Universities section and create a new university by filling out the required fields (e.g., University Name etc).
 Add a degree program: Select a university from the dropdown list and add a new degree program with details like degree name, last year merit, and fees.
@@ -79,10 +79,17 @@ Edit or delete universities: Click the "Edit" button to modify any university's 
 View university details: The system provides a list of universities with their associated degree programs.
 
 ### 10. Usage
-Note: Must Run for Dummy Data if you have followed the step 6 and already run migration and seed then can skip this last step-10
+<b>Note</b>: Must Run for Dummy Data if you have followed the step 6 and already run migration and seed then can skip this last step-10
 # Php artisan migrate --seed 
 
 ## 11. Admin Login
-localhost:8000/admin/login
-Email:admin@admin.com
+localhost:8000/admin/login <br>
+Email:admin@admin.com<br>
 Password: admin@123
+
+## 12. Must run  the npm
+npm run dev 
+
+## 12. After Login 
+After Admin login the Dashboard will be show <br>
+<b>Note</b>: Only Admin can access dashboard.
