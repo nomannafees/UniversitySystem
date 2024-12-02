@@ -25,18 +25,10 @@
                                     {{ method_field('PUT') }}
                                 @endisset
                                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
-                                    <div class="sm:col-span-1">
+                                    <div class="sm:col-span-2">
                                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">University Name</label>
                                         <input  type="text" name="name" id="name" value="{{isset($university->name) ? $university->name:'' }}" class="required bg-red-50 border border-red-500 text-red-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Enter University Name">
                                         @error('name')
-                                        <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium error-msg">{{ $message }}</span></p>
-                                        @enderror
-
-                                    </div>
-                                    <div class="sm:col-span-1">
-                                        <label for="location" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">University Location</label>
-                                        <input  type="text" name="location" id="location" value="{{isset($university->location) ? $university->location:'' }}" class="required bg-red-50 border border-red-500 text-red-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Enter University Location">
-                                        @error('location')
                                         <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium error-msg">{{ $message }}</span></p>
                                         @enderror
 
@@ -75,7 +67,7 @@
                                     </div>
                                     <div class="sm:col-span-1">
                                         <label for="city" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">City</label>
-                                        <input placeholder="Enter the city" name="city" class="required block w-full text-md text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="large_size" type="text">
+                                        <input placeholder="Enter the city" name="city" value="{{isset($university->city) ? $university->city:'' }}"  class="required block w-full text-md text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="large_size" type="text">
                                         @error('city')
                                         <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium error-msg">{{ $message }}</span></p>
                                         @enderror

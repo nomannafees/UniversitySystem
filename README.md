@@ -35,7 +35,8 @@ cd UniversitySystem
 composer install
 
 ### 3.  Set up the environment file
-Copy the .env.example file to .env
+Must Copy the .env.example file to .env <br>
+.env.example file has basic settings and email sending configuration
 cp .env.example .env
 
 ### 4.  Set up the database

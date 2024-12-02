@@ -64,7 +64,7 @@
                             @forelse($universities as $university)
                                 <tr class="bg-white dark:bg-gray-800">
                                     <td class="px-6 py-4 truncate">
-                                        <img src="{{ isset($university->image) ? url('storage/university_image/'.$university->image) : asset('default.jpg')  }}" alt="University Image" class="w-16 h-8 object-cover">
+                                        <img src="{{ \Storage::exists('university_image/'.$university->image) && isset($university->image) ? url('storage/university_image/'.$university->image) : asset('default.jpg')  }}" alt="University Image" class="w-16 h-8 object-cover">
                                     </td>
                                     <td class="px-6 py-4 truncate">
                                         {{$university->name ? $university->name : ''}}
