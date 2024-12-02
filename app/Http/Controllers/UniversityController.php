@@ -90,8 +90,13 @@ class UniversityController extends Controller
     public function update(Request $request, University $university)
     {
         $request->validate([
-            'name' => 'required|string|max:150',
-            'location' => 'required|string|max:150'
+            'name' => 'required|string|max:30',
+            'admission_info' => 'required|string|max:255',
+            'registrar_office' => 'required|string|max:150',
+            'phone' => 'required|string|regex:/^\+?[0-9]{7,15}$/',
+            'email' => 'required|email|max:150',
+            'address' => 'required|string|max:255',
+            'city' => 'required|string|max:150',
         ]);
         $university->update($request->all());
         return redirect()->route('universities.index')->with('success', 'University updated successfully.');
