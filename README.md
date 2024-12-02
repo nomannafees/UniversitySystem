@@ -2,6 +2,13 @@
 
 # University Degree Program Management System
 
+### Loom Video Demo
+
+A detailed demo of the frontend and backend can be viewed via the following Loom video link:
+
+https://www.loom.com/share/4544d726ca62426ab8ae8b73ae65e71f?sid=bbe162f9-db5c-4bc0-aec0-57865c0de0ed
+
+
 ## Description
 This project is a **CRUD (Create, Read, Update, Delete)** application built with **Laravel**. It is designed to manage **Universities** and their **Degree Programs**. The system allows users to:
 
@@ -60,17 +67,24 @@ php artisan migrate
 Also run the seeders
 php artisan db:seed
 
-### 7. Install Frontend Dependencies
+### 7. Set Up Storage Link
+To enable storing and accessing images (e.g., for university images), you must create <br>
+a symbolic link between the storage and public directories <br>
+
+php artisan storage:link
+
+
+### 8. Install Frontend Dependencies
 You might also need to install the frontend dependencies and build them. Use the following commands:
 Install Node.js dependencies:
 npm install
 
-### 8. Compile frontend assets
+### 9. Compile frontend assets
 npm run dev
 Alternatively, to build the production version:
 npm run prod
 
-### 9. Usage
+### 10. Usage
 
 Once the application is running, you can
 
@@ -79,18 +93,18 @@ Add a degree program: Select a university from the dropdown list and add a new d
 Edit or delete universities: Click the "Edit" button to modify any university's details, or use the "Delete" button to remove a university.
 View university details: The system provides a list of universities with their associated degree programs.
 
-### 10. Usage
+### 11. Usage
 <b>Note</b>: Must Run for Dummy Data if you have followed the step 6 and already run migration and seed then can skip this last step-10
 # Php artisan migrate --seed 
 
-## 11. Admin Login
+## 12. Admin Login
 localhost:8000/admin/login <br>
 Email:admin@admin.com<br>
 Password: admin@123
 
-## 12. Must run  the npm
+## 13. Must run  the npm
 npm run dev 
 
-## 12. After Login 
+## 14. After Login 
 After Admin login the Dashboard will be show <br>
 <b>Note</b>: Only Admin can access dashboard.
