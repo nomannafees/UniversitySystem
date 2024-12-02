@@ -46,9 +46,6 @@
                                     Email
                                 </th>
                                 <th scope="col" class="px-6 py-4">
-                                    Address
-                                </th>
-                                <th scope="col" class="px-6 py-4">
                                     City
                                 </th>
 
@@ -83,9 +80,6 @@
                                     </td>
                                     <td class="px-6 py-4 truncate">
                                         {{$university->email ? $university->email : '--'}}
-                                    </td>
-                                    <td class="px-6 py-4 truncate">
-                                        {{$university->address ? $university->image : '--'}}
                                     </td>
                                     <td class="px-6 py-4 truncate">
                                         {{$university->city ? $university->city : '--'}}
