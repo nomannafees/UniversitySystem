@@ -35,7 +35,6 @@ class UniversityController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:30',
-            'location' => 'required|string|max:150',
             'admission_info' => 'required|string|max:255',
             'registrar_office' => 'required|string|max:150',
             'phone' => 'required|string|regex:/^\+?[0-9]{7,15}$/',
