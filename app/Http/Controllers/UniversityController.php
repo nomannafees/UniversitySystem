@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\University;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use function League\Flysystem\move;
 
@@ -98,7 +99,26 @@ class UniversityController extends Controller
             'address' => 'required|string|max:255',
             'city' => 'required|string|max:150',
         ]);
-        $university->update($request->all());
+        $image_name = $university->image;
+
+        if ($request->hasFile('img')) {
+            // Unlink the old image if it exists
+            if ($university->image && Storage::exists('/university_image/' . $university->image)) {
+                Storage::delete('/university_image/' . $university->image);
+            }
+
+            $image = $request->file('img');
+            $image_extension = $image->getClientOriginalExtension();
+            $image_name = time() . "." . $image_extension;
+            $image->storeAs('/university_image', $image_name);
+        }
+
+        $request->request->add([
+            'image' => $image_name,
+            'slug' => Str::slug($request->name),
+        ]);
+        $requestData = $request->except(['img']);
+        $university->update($requestData);
         return redirect()->route('universities.index')->with('success', 'University updated successfully.');
 
     }
@@ -110,6 +130,10 @@ class UniversityController extends Controller
      */
     public function destroy(University $university)
     {
+        // Unlink the old image if it exists
+        if ($university->image && Storage::exists('/university_image/' . $university->image)) {
+            Storage::delete('/university_image/' . $university->image);
+        }
         $university->delete();
         return redirect()->route('universities.index')->with('success', 'University deleted successfully.');
     }
